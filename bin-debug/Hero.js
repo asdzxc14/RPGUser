@@ -55,7 +55,7 @@ var Hero = (function () {
     );
     d(p, "attack"
         ,function () {
-            return (this.basicAttackData + this.level * this.strengthData * this.agilityData) * 10;
+            return (this.basicAttackData * this.strengthData * this.agilityData * 0.6 + this.maxHp * 0.4) * Math.pow(1.1, this.level);
         }
     );
     d(p, "fightPower"
@@ -64,7 +64,7 @@ var Hero = (function () {
             for (var i = 0; i < this.equipments.length; i++) {
                 result += this.equipments[i].fightPower;
             }
-            return (this.attack + result * 0.3) * 10;
+            return (this.attack + result * 0.3) * 2;
         }
     );
     __decorate([

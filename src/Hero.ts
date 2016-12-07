@@ -33,7 +33,7 @@ class Hero {
 
     @this.attackCache
     get attack(): number {
-        return (this.basicAttackData + this.level * this.strengthData * this.agilityData) * 10;
+        return (this.basicAttackData * this.strengthData * this.agilityData * 0.6 + this.maxHp * 0.4) * Math.pow(1.1, this.level);
     }
 
     @this.fightPowerCache
@@ -45,7 +45,7 @@ class Hero {
 
             result += this.equipments[i].fightPower;
         }
-        return (this.attack + result * 0.3) * 10;
+        return (this.attack + result * 0.3) * 2;
     }
 
     maxHpCache: MethodDecorator = (target: any, propertyName, desc: PropertyDescriptor) => {

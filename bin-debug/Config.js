@@ -1,6 +1,6 @@
 var heroConfig = [
-    { basicAttack: 4.5, strength: 1.5, agility: 1.5, intelligence: 1.3 },
-    { basicAttack: 3.6, strength: 2, agility: 1, intelligence: 1.5 }
+    { basicAttack: 45, strength: 1.5, agility: 1.5, intelligence: 1.3 },
+    { basicAttack: 36, strength: 2, agility: 1, intelligence: 1.5 }
 ];
 var equipmentConfig = [
     { basicAttack: 2.8, getRate: 0.2, consume: 0.8 },

@@ -116,8 +116,8 @@ var Main = (function (_super) {
         user.heros.push(hero2);
         user.heros[0].setInTeam(true);
         user.heros[1].setInTeam(true);
-        user.heros[0].level = 10;
-        user.heros[1].level = 10;
+        user.heros[0].level = 20;
+        user.heros[1].level = 20;
         console.log(user.fightPower);
     };
     return Main;
