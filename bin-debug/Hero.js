@@ -1,9 +1,43 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var Hero = (function () {
     function Hero(type) {
+        var _this = this;
         this.level = 1;
         this.isInTeam = false;
         this.dirtyFlag = true;
         this.equipments = [];
+        this.maxHpCache = function (target, propertyName, desc) {
+            if (!_this.dirtyFlag) {
+                var getter_1 = desc.get;
+                desc.get = function () {
+                    return getter_1.apply(this);
+                };
+                return desc;
+            }
+        };
+        this.attackCache = function (target, propertyName, desc) {
+            if (!_this.dirtyFlag) {
+                var getter_2 = desc.get;
+                desc.get = function () {
+                    return getter_2.apply(this);
+                };
+                return desc;
+            }
+        };
+        this.fightPowerCache = function (target, propertyName, desc) {
+            if (!_this.dirtyFlag) {
+                var getter_3 = desc.get;
+                desc.get = function () {
+                    return getter_3.apply(this);
+                };
+                return desc;
+            }
+        };
         this.basicAttackData = heroConfig[type].basicAttack;
         this.strengthData = heroConfig[type].strength;
         this.agilityData = heroConfig[type].agility;
@@ -24,15 +58,24 @@ var Hero = (function () {
             return (this.basicAttackData + this.level * this.strengthData * this.agilityData) * 10;
         }
     );
-    d(p, "FightPower"
+    d(p, "fightPower"
         ,function () {
             var result = 0;
             for (var i = 0; i < this.equipments.length; i++) {
-                result += this.equipments[i].FightPower;
+                result += this.equipments[i].fightPower;
             }
             return (this.attack + result * 0.3) * 10;
         }
     );
+    __decorate([
+        this.maxHpCache
+    ], p, "maxHp", null);
+    __decorate([
+        this.attackCache
+    ], p, "attack", null);
+    __decorate([
+        this.fightPowerCache
+    ], p, "fightPower", null);
     return Hero;
 }());
 egret.registerClass(Hero,'Hero');

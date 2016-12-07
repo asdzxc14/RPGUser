@@ -4,7 +4,8 @@ class User {
 
     dirtyFlag: boolean = true;
 
-    getheroInTeam(): Hero[] {
+    @this.getHerosInTeamCache
+    getHeroInTeam(): Hero[] {
 
         var heroInTeam: Hero[] = [];
 
@@ -16,15 +17,38 @@ class User {
         return heroInTeam;
     }
 
-    get FightPower(): number {
+    @this.fightPowerCache
+    get fightPower(): number {
 
         var result = 0;
-        var heros: Hero[] = this.getheroInTeam();
+        var heros: Hero[] = this.getHeroInTeam();
 
         for (var i = 0; i < heros.length; i++) {
 
-            result += heros[i].FightPower;
+            result += heros[i].fightPower;
         }
         return result;
+    }
+
+    getHerosInTeamCache: MethodDecorator = (target: any, propertyName, desc: PropertyDescriptor) => {
+
+        if (!this.dirtyFlag) {
+            const getter = desc.get;
+            desc.get = function () {
+                return getter.apply(this);
+            }
+            return desc;
+        }
+    }
+
+    fightPowerCache: MethodDecorator = (target: any, propertyName, desc: PropertyDescriptor) => {
+
+        if (!this.dirtyFlag) {
+            const getter = desc.get;
+            desc.get = function () {
+                return getter.apply(this);
+            }
+            return desc;
+        }
     }
 }

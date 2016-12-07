@@ -143,6 +143,6 @@ class Main extends egret.DisplayObjectContainer {
         user.heros[0].level = 10;
         user.heros[1].level = 10;
 
-        console.log(user.FightPower);
+        console.log(user.fightPower);
     }
 }

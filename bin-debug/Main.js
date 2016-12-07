@@ -114,11 +114,11 @@ var Main = (function (_super) {
         hero2.equipments.push(equipment2);
         user.heros.push(hero1);
         user.heros.push(hero2);
-        user.heros[0].setInTeam(false);
+        user.heros[0].setInTeam(true);
         user.heros[1].setInTeam(true);
         user.heros[0].level = 10;
         user.heros[1].level = 10;
-        console.log(user.FightPower);
+        console.log(user.fightPower);
     };
     return Main;
 }(egret.DisplayObjectContainer));
