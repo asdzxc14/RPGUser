@@ -1,30 +1,46 @@
 class Hero {
 
+    level = 1;
+
+    strengthData: number
+    agilityData: number
+    intelligenceData: number
+
     isInTeam: boolean = false;
+    dirtyFlag: boolean = true;
 
     equipments: Equipment[] = [];
 
-    hp = 50;
+    public constructor(type: number) {
 
-    level = 1;
-
-    quality: number = 2.8;
-
-    get maxHp() {
-        return this.level * 100 * this.quality;
+        this.strengthData = heroConfig[type].strength;
+        this.agilityData = heroConfig[type].agility;
+        this.intelligenceData = heroConfig[type].intelligence;
     }
 
-    get attack() {
-        var result = 0;
-        this.equipments.forEach(e => result += e.attack);
-        return result;
+    public setInTeam(status: boolean) {
+
+        this.isInTeam = status;
+        this.dirtyFlag = true;
     }
 
-    get fightPower(){
-        return  this.getFightPower();
+    get maxmp(): number {
+        return this.level * 10 * this.intelligence;
     }
 
-    getFightPower() {
-        return this.maxHp * 1.5 + this.attack * 1.8;
+    get strength(): number {
+        return this.level * 10 * this.strengthData;
+    }
+
+    get intelligence(): number {
+        return this.level * 10 * this.intelligenceData;
+    }
+
+    get agility(): number {
+        return this.level * 10 * this.agilityData;
+    }
+
+    get attack(): number {
+        return 6000;
     }
 }
