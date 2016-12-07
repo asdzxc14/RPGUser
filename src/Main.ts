@@ -120,5 +120,6 @@ class Main extends egret.DisplayObjectContainer {
 
         var user = new User();
         
+        
     }
 }
