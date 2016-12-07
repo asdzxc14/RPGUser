@@ -9,7 +9,16 @@ var Equipment = (function () {
     var d = __define,c=Equipment,p=c.prototype;
     d(p, "attack"
         ,function () {
-            return 50;
+            return this.basicAttackData / this.getRateData * this.consumeData;
+        }
+    );
+    d(p, "FightPower"
+        ,function () {
+            var result = 0;
+            for (var i = 0; i < this.jewels.length; i++) {
+                result += this.jewels[i].FightPower;
+            }
+            return (this.attack + result * 0.3) * 10;
         }
     );
     return Equipment;

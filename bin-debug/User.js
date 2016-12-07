@@ -1,7 +1,6 @@
 var User = (function () {
     function User() {
         this.heros = [];
-        this.herointeam = [];
         this.dirtyFlag = true;
     }
     var d = __define,c=User,p=c.prototype;
@@ -18,8 +17,7 @@ var User = (function () {
         ,function () {
             var result = 0;
             var heros = this.getheroInTeam();
-            this.heros.forEach(function (e) { return result += e.attack; });
-            result = result / 150;
+            this.heros.forEach(function (e) { return result += e.FightPower; });
             return result;
         }
     );

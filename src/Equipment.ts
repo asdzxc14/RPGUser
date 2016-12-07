@@ -1,8 +1,8 @@
 class Equipment {
 
     basicAttackData: number;
-    getRateData: number
-    consumeData: number
+    getRateData: number;
+    consumeData: number;
 
     dirtyFlag: boolean = true;
     jewels: Jewel[] = [];
@@ -16,7 +16,17 @@ class Equipment {
     }
 
     get attack(): number {
-        return 50;
+        return this.basicAttackData / this.getRateData * this.consumeData;
     }
 
+    get FightPower(): number {
+
+        var result = 0;
+
+        for (var i = 0; i < this.jewels.length; i++) {
+
+            result += this.jewels[i].FightPower;
+        }
+        return (this.attack + result * 0.3) * 10;
+    }
 }

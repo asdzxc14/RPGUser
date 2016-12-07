@@ -1,6 +1,6 @@
 var heroConfig = [
-    { strength: 1.5, agility: 1.5, intelligence: 1.3 },
-    { strength: 2, agility: 1, intelligence: 1.5 }
+    { basicAttack: 4.5, strength: 1.5, agility: 1.5, intelligence: 1.3 },
+    { basicAttack: 3.6, strength: 2, agility: 1, intelligence: 1.5 }
 ]
 
 var equipmentConfig = [
@@ -9,6 +9,6 @@ var equipmentConfig = [
 ]
 
 var jewelConfig = [
-    { basicAttack: 1.3, purity: 0.7 },
-    { basicAttack: 2.2, purity: 0.9 }
+    { basicAttack: 1.3, getRate: 0.3, purity: 0.7 },
+    { basicAttack: 2.2, getRate: 0.6, purity: 0.9 }
 ]

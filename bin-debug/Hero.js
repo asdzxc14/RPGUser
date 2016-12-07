@@ -4,6 +4,7 @@ var Hero = (function () {
         this.isInTeam = false;
         this.dirtyFlag = true;
         this.equipments = [];
+        this.basicAttackData = heroConfig[type].basicAttack;
         this.strengthData = heroConfig[type].strength;
         this.agilityData = heroConfig[type].agility;
         this.intelligenceData = heroConfig[type].intelligence;
@@ -13,29 +14,23 @@ var Hero = (function () {
         this.isInTeam = status;
         this.dirtyFlag = true;
     };
-    d(p, "maxmp"
+    d(p, "maxHp"
         ,function () {
-            return this.level * 10 * this.intelligence;
-        }
-    );
-    d(p, "strength"
-        ,function () {
-            return this.level * 10 * this.strengthData;
-        }
-    );
-    d(p, "intelligence"
-        ,function () {
-            return this.level * 10 * this.intelligenceData;
-        }
-    );
-    d(p, "agility"
-        ,function () {
-            return this.level * 10 * this.agilityData;
+            return this.level * this.intelligenceData * 100;
         }
     );
     d(p, "attack"
         ,function () {
-            return 6000;
+            return (this.basicAttackData + this.level * this.strengthData * this.agilityData) * 10;
+        }
+    );
+    d(p, "FightPower"
+        ,function () {
+            var result = 0;
+            for (var i = 0; i < this.equipments.length; i++) {
+                result += this.equipments[i].FightPower;
+            }
+            return (this.attack + result * 0.3) * 10;
         }
     );
     return Hero;

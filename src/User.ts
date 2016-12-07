@@ -1,7 +1,6 @@
 class User {
 
     heros: Hero[] = [];
-    herointeam: Hero[] = [];
 
     dirtyFlag: boolean = true;
 
@@ -23,9 +22,7 @@ class User {
 
         var heros: Hero[] = this.getheroInTeam();
 
-        this.heros.forEach(e => result += e.attack)
-
-        result = result / 150;
+        this.heros.forEach(e => result += e.FightPower)
 
         return result;
 
