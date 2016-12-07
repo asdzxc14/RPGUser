@@ -17,7 +17,9 @@ var User = (function () {
         ,function () {
             var result = 0;
             var heros = this.getheroInTeam();
-            this.heros.forEach(function (e) { return result += e.FightPower; });
+            for (var i = 0; i < heros.length; i++) {
+                result += heros[i].FightPower;
+            }
             return result;
         }
     );

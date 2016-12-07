@@ -13,9 +13,7 @@ var Jewel = (function () {
     );
     d(p, "FightPower"
         ,function () {
-            var result = 0;
-            result = this.attack * 0.8 + 100 / this.getRateData;
-            return result;
+            return this.attack * 0.8 + 100 / this.getRateData;
         }
     );
     return Jewel;

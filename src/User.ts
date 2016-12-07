@@ -19,12 +19,12 @@ class User {
     get FightPower(): number {
 
         var result = 0;
-
         var heros: Hero[] = this.getheroInTeam();
 
-        this.heros.forEach(e => result += e.FightPower)
+        for (var i = 0; i < heros.length; i++) {
 
+            result += heros[i].FightPower;
+        }
         return result;
-
     }
 }
